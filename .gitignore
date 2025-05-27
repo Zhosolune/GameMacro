@@ -1,0 +1,105 @@
+# .NET/.NET Core 忽略文件
+## 构建结果
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]uild/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+## Visual Studio 临时文件
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## 重设适配器日志
+StyleCopReport.xml
+
+## 缓存文件
+*.[Cc]ache
+!?*.[Cc]ache/
+
+## 本地历史
+.localhistory/
+
+# NuGet 包
+*.nupkg
+# NuGet Symbol 包
+*.snupkg
+# 包文件夹可以由 NuGet 包还原
+**/[Pp]ackages/*
+# 除了构建/、这可以用于 MSBuild 目标中的工具。
+!**/[Pp]ackages/build/
+# 取消注释以保留特定包版本，或者使用包还原启用的 NuGet v3
+#!**/[Pp]ackages/repositories.config
+*.nuget.props
+*.nuget.targets
+
+# Visual Studio 配置文件
+.suo
+.user
+.vs/
+launchSettings.json
+
+# Rider 配置文件
+.idea/
+
+# 测试结果
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# 日志文件
+*.log
+logs/
+
+# 特定于应用程序的文件
+GameMacro/bin/
+GameMacro/obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.resources
+
+# 特定于操作系统的文件
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+## Linux
+*~
+.directory
+.Trash-*
+
+# 杂项
+node_modules/
+.sass-cache/
+dist/
+coverage/
+.coverage
+htmlcov/
+TestResults/
+[Bb]uild[Ll]og.*
+*.VisualState.xml 
