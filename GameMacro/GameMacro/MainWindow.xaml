@@ -5,9 +5,47 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameMacro"
+        xmlns:viewModels="clr-namespace:GameMacro.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewModels:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Title}" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- 工具栏 -->
+        <ToolBarTray Grid.Row="0">
+            <ToolBar>
+                <Button Command="{Binding StartRecordingCommand}" 
+                        ToolTip="开始录制"
+                        IsEnabled="{Binding IsRecording, Converter={StaticResource InverseBoolConverter}}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="⏺" FontSize="16" Foreground="Red" Margin="0,0,5,0"/>
+                        <TextBlock Text="录制"/>
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding StopRecordingCommand}" 
+                        ToolTip="停止录制"
+                        IsEnabled="{Binding IsRecording}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="⏹" FontSize="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="停止"/>
+                    </StackPanel>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+        
+        <!-- 内容区域 -->
+        <ContentControl Grid.Row="1" Content="{Binding CurrentView}"/>
+        
+        <!-- 状态栏 -->
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock Text="{Binding IsRecording, Converter={StaticResource BoolToRecordingStatusConverter}, FallbackValue=就绪}"/>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>

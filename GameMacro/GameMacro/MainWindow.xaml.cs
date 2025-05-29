@@ -1,24 +1,29 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+// using GameMacro.ViewModels; //不再需要，Prism会自动关联
 
 namespace GameMacro
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        // 不再需要这个构造函数，Prism会自动注入ViewModel
+        // /// <summary>
+        // /// 带视图模型参数的构造函数，用于Prism依赖注入
+        // /// </summary>
+        // /// <param name="viewModel">主窗口视图模型</param>
+        // public MainWindow(MainWindowViewModel viewModel) : this()
+        // {
+        //     DataContext = viewModel;
+        // }
     }
 }
