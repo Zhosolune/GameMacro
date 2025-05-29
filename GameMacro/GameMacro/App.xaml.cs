@@ -4,6 +4,7 @@ using GameMacro.Services;
 using GameMacro.ViewModels;
 using NLog;
 using Prism.Ioc;
+using Prism.Mvvm;
 using Prism.Unity;
 
 namespace GameMacro
@@ -19,6 +20,8 @@ namespace GameMacro
         /// <returns>主窗口实例</returns>
         protected override Window CreateShell()
         {
+            var logger = Container.Resolve<ILoggingService>();
+            logger.Debug("CreateShell called, resolving MainWindow.");
             return Container.Resolve<MainWindow>();
         }
 
@@ -34,10 +37,8 @@ namespace GameMacro
             // 注册视图模型
             containerRegistry.Register<MainWindowViewModel>();
             
-            // 注册视图和视图模型的关联
-            // Prism会自动将MainWindow与MainWindowViewModel关联起来，因为它们遵循命名约定
-            // 如果不遵循命名约定，则需要手动注册：
-            // ViewModelLocationProvider.Register<MainWindow, MainWindowViewModel>();
+            // 显式注册视图和视图模型的关联
+            ViewModelLocationProvider.Register<MainWindow, MainWindowViewModel>();
         }
 
         /// <summary>
